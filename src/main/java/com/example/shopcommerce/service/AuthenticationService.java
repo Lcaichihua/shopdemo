@@ -15,7 +15,7 @@ public class AuthenticationService {
     static final String SIGNINGKEY = "SecretKey";
     static final String PREFIX = "Bearer";
 
-    static void addToken(HttpServletResponse response, String username) {
+    public static void addToken(HttpServletResponse response, String username) {
         String JwtToken = Jwts.builder().setSubject(username)
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATIONTIME))
                 .signWith(SignatureAlgorithm.HS512, SIGNINGKEY).compact();
